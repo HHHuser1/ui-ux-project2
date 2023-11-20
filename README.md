@@ -4,3 +4,5 @@ project2
 Haitham, Shima, Fransis.
 hi
 hello
+
+testing VScode git commit
