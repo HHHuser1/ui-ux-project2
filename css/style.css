@@ -274,6 +274,48 @@ body{
 
 }
 
+
+/* this is profile css */
+.profile h1{
+    margin: 15px;
+}
+
+.profile article{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+}
+
+.profile .left{
+    padding: 20px;
+    text-align: center;
+}
+
+.profile img{
+    width: 120px;
+    height: 120px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.profile label{
+    font-weight: bold;
+}
+
+.profile p {
+    font-size: clamp(0.2rem, 2.5vw, 1.125rem);
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    font-family: Quattrocento;
+}
+
+.employee-table tr:hover{
+    background-color: #bfcfe1;
+    cursor: pointer;
+}
+
+
+
 @media screen and (max-width: 700px) {
     .button-icon{
         margin-right: 10px;
@@ -291,6 +333,13 @@ body{
         /* grid-template-columns: 30% calc(100% - 30%); */
         /* grid-template-columns: 1fr 2fr; */
         /* grid-row: 1fr 3fr 1fr;  */
+    }
+
+    .profile img{
+        width: 90px;
+        height: 90px;
+        border: 1px solid black;
+        border-radius: 50%;
     }
     
 }
@@ -342,4 +391,11 @@ body{
         transition: .3s ease-in-out;
     }
     
+    .profile img{
+        width: 70px;
+        height: 70px;
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+
 }

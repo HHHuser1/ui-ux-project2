@@ -220,8 +220,21 @@
   
     const tbody = document.createElement("tbody");
   
-    data.forEach((employee) => {
+    data.forEach((employee,index) => {
       const row = document.createElement("tr");
+      row.classList.add("employee" + index);
+      row.addEventListener("click",()=>{
+        console.log("hello", employee['employee_id']);
+        const idForm = new FormData();
+        const url = "./app/profile.php?id="+employee['employee_id'];
+        const data = idForm.append("id",employee['employee_id']);
+        fetch(url,{
+          method: "POST",
+          data: data
+        }); 
+  
+        window.location.href = "./profile.html?id="+employee['employee_id'];
+      })
       const columns = [
         "employee_id",
         "first_name",
