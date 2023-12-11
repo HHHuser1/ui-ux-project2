@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Employee MS</title>
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Agdasima:wght@400;700&family=Aldrich&family=Alexandria:wght@100;200;300;400;500;600;700;800;900&family=Alfa+Slab+One&family=Allerta+Stencil&family=Almarai:wght@300;400;700;800&family=Archivo+Black&family=Assistant:wght@200;300;400;500;600;700;800&family=Audiowide&family=Bacasime+Antique&family=Belanosima:wght@400;600;700&family=Bruno+Ace&family=Cabin+Condensed:wght@400;500;600;700&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Calistoga&family=Caprasimo&family=Cherry+Bomb+One&family=Comfortaa:wght@300;400;500;600;700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Dosis:wght@200;300;400;500;600;700;800&family=Electrolize&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300;400;500;600;700&family=Gabarito:wght@400;500;600;700;800;900&family=Genos:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gruppo&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Itim&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jura:wght@300;400;500;600;700&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Limelight&family=Manrope:wght@200;300;400;500;600;700;800&family=Michroma&family=Monoton&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Oswald:wght@200;300;400;500;600;700&family=Oxanium:wght@200;300;400;500;600;700;800&family=Oxygen:wght@300;400;700&family=Patua+One&family=Permanent+Marker&family=Pinyon+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quattrocento:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=REM:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Moonrocks&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,800;1,900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira+Extra+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Sora:wght@100;200;300;400;500;600;700;800&family=Spinnaker&family=Syncopate:wght@400;700&family=Teko:wght@300;400;500;600;700&family=Tektur:wght@400;500;600;700;800;900&family=Tilt+Neon&family=Train+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Ultra&family=Unna:ital,wght@0,400;0,700;1,400;1,700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela&family=Vast+Shadow&family=Voltaire&family=Ysabeau:ital,wght@0,1;0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,1;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/employee_management_style.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <main>
+        <section class="app-section">
+            <div class="container">
+                <div class="app-box-grid">
+                    <div class="item header">
+                        <div class="header-grid">
+                            <h1>Employee <span class="logo-accent">MS</span></h1>
+                            <div class="header-text"><h2>Welcome</h2></div>
+                        </div>
+                    </div>
+                    <div class="item sidebar">
+                        <ul>
+                            
+                            <a href="./index.html">
+                            <li><i class="fa-solid fa-gauge"></i> <h5>dashboard</h5>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </li>
+                            </a>
+                                
+                            <a href="./add-employee.html">
+                            <li><i class="fa-solid fa-user-plus"></i> <h5>add employee</h5>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </li>
+                            </a>
+
+                            <a href="./edit-employee.html">
+                            <li><i class="fa-solid fa-pen-to-square"></i> <h5>edit employee</h5>
+                                <i class="fa-solid fa-chevron-right"></i></li>
+                            </a>
+
+                            <a href="./edit-employee.html">
+                            <li><i class="fa-solid fa-magnifying-glass"></i> <h5>search employee</h5>
+                                <i class="fa-solid fa-chevron-right"></i></li>
+                            </a>
+                        </ul>
+                        
+                    </div>
+                    <div class="item content">
+                        <div class="container">
+                            <div class="textbox">
+                                <h1>Employee Management System</h1>
+                            </div>     
+         
+                            
+                            
+                            <div id="employee-add">
+                                <div id="title-text">
+                                    <h3>ADD Employee information  </h3>
+                                    <h3><span class="span_class">(an error will display if "employee ID" or "email" exists in the database)</span></h3>
+                                    <div id="errorContainer"></div>
+                                </div>
+                                <form id="addEmployeeForm"> <!-- document.getElementById("addEmployeeForm").reset(); -->
+                                    <div>
+                                        <label for="first_name">First Name:</label>
+                                        <input type="text" id="first_name" placeholder="First Name" required><br>
+                                    </div>
+                
+                                    <div>
+                                        <label for="last_name">Last Name:</label>
+                                        <input type="text" id="last_name" placeholder="Last Name" required><br>
+                                    </div>
+                
+                                    <div>
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" placeholder="Email" required><br>
+                                    </div>
+                
+                                    <div>
+                                        <label for="employee_id">Employee ID: (4-digit format)</label>
+                                        <input type="text" id="employee_id" pattern="[0-9]{4}" placeholder="4-digit format" required><br>
+                                    </div>
+                
+                                    <div>
+                                        <label for="department_name">Select a department</label>
+                                        <select name="department_name" id="department_name"> 
+                                            <option value="finance">Finance</option> 
+                                            <option value="marketing">Marketing</option> 
+                                            <option value="production">Production</option> 
+                                            <option value="human resources">Human Resources</option>
+                                            <option value="management">Management</option>
+                                            <option value="accounting">Accounting</option>
+                                            <option value="sales">Sales</option>
+                                            <option value="maintenance">Maintenance</option>
+                                        </select>
+                                    </div>
+                
+                                    <div>
+                                        <input class="btn" type="submit" value="Add Employee" id="addEmployee">
+                                        <!-- <button><a id="addEmployee">Add Employee</a></button> -->
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- <section class="container"> -->
+                                <div id="employee_search">
+                                    <h2>Search Employees:</h2>
+                                    <form id="searchForm"> <!-- document.getElementById("searchForm").reset(); -->
+                                        <label for="search_name">Search by First Name, Last Name, Employee ID, Full Email or Department</label>
+                                        <input type="text" id="search_name" required>
+                                        <input class="btn" type="submit" value="Search" id="searchEmployee">
+                                        <!-- <button id="searchEmployee">Search</button> -->
+                                    </form>
+                                </div>
+                            <!-- </section> -->
+
+                            <!-- <section class="top">
+                                <a class="btn1"  href="./edit-information.html">To Edit Employee's  Information Click Here</a>
+                            </section> -->
+                        
+                            <section class="container1">
+                                <h4 id="empl-list-title" >Employee List:</h4>
+                                <div id="employeeList">
+                                    <!-- Employee list results will be displayed here -->
+                                </div>
+                            </section>
+
+
+
+                        </div><!-- end of forms container -->
+                    </div><!-- end of content container -->
+                    <footer class="item footer">
+                        <p>Copyright &copy; 2023</p>
+                        <p>Team members : Fransiskus Aldo , Haitham Barakat AND Shima Deljavan Farshi</p>
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    <script src="./js/add_employee.js" ></script>
+</body>
+</html>

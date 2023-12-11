@@ -19,21 +19,23 @@
     
 </head>
 <body> 
-    <section class="top">
-        <div class="top1">
-            <p>you are now in the update employee information page</p>
-            <a class="btn1" href="./employee_management.html">To Go Back and Add a New Employee Click here</a>
-            </div>
-    </section>
+    
     <section class="container">
-        <div id="errorContainer2"></div>
-        <div class="textbox" id="employee-upd">
-            <div id="errorContainer2"></div> <!-- Updating employee errors will display here -->
 
+        <div class="textbox">
+            <h1>Employee Management System</h1>            
+        </div>     
+
+        <!-- <div id="errorContainer2"></div> -->
+        <div class="textbox" id="title-text">
             <h3>Update Employee Information <br><span class="span_class">(an error will display if "employee ID" does not exist in the database)</h3></span>
+            <div id="errorContainer2"></div> <!-- Updating employee errors will display here -->
+            
         </div>
-        <p>To update an employee's information please enter corect employee ID</p>
+        
+        <div>
             <form id="updateEmployeeForm"> <!-- document.getElementById("updateEmployeeForm").reset(); -->
+                <p>To update an employee's information please enter correct employee ID</p>
                 <div>
                     <label for="update_employee_id">Employee ID: (4-digit format)</label>
                     <input type="text" id="update_employee_id" pattern="[0-9]{4}" placeholder="4-digit format" required><br>
@@ -76,16 +78,17 @@
             </form>
         </div>
     </section>
+    
 
     <section class="container">
         <div id="employee_search">
             <h2>Search Employees:</h2>
-            <div id="searchForm"> <!-- document.getElementById("searchForm").reset(); -->
+            <form id="searchForm"> <!-- document.getElementById("searchForm").reset(); -->
                 <label for="search_name">Search by First Name, Last Name, Employee ID, Full Email or Department</label>
                 <input type="text" id="search_name" required>
                 <input class="btn" type="submit" value="Search" id="searchEmployee">
                 <!-- <button id="searchEmployee">Search</button> -->
-            </div>
+            </form>
         </div>
     </section>
 
@@ -96,8 +99,16 @@
         </div>
     </section>
 
+    <section class="top">
+        <div class="top1">
+            <a class="btn1" href="./employee_management.html">To "ADD" an employee to the database Click here</a>
+        </div>
+    </section>
+
+
+
     <section class="container">
-        <h2>Employee List:</h2>
+        <h2 id="empl-list-title" >Employee List:</h2>
         <ul id="employeeList">
             <!-- Employee list results will be displayed here -->
         </ul>

@@ -21,15 +21,22 @@
     <section class="container">
         <div class="textbox">
             <h1>Employee Management System</h1>
-            
         </div>     
+        <section class="top">
+            <!-- <div class="top1">
+                <p>you are now in the "ADD" employee page</p>
+                <a class="btn1" href="./edit-information.html">To "EDIT" employee information Click here</a>
+            </div> -->
+        </section>
     
         <!-- <div class="wrapper"> -->
         <!-- <div id="errorContainer">Adding employee errors will display here</div> -->
 
             <div id="employee-add">
-                <div id="errorContainer"></div>
-                <h3>Add Employee: <br><span class="span_class">(an error will display if "employee ID" or "email" exists in the database)</h3></span>
+                <div id="title-text">
+                    <h3>Add Employee: <br><span class="span_class">(an error will display if "employee ID" or "email" exists in the database)</h3></span>
+                    <div id="errorContainer"></div>
+                </div>
                 <form id="addEmployeeForm"> <!-- document.getElementById("addEmployeeForm").reset(); -->
                     <div>
                         <label for="first_name">First Name:</label>
@@ -78,12 +85,12 @@
     <section class="container">
         <div id="employee_search">
             <h2>Search Employees:</h2>
-            <div id="searchForm"> <!-- document.getElementById("searchForm").reset(); -->
+            <form id="searchForm"> <!-- document.getElementById("searchForm").reset(); -->
                 <label for="search_name">Search by First Name, Last Name, Employee ID, Full Email or Department</label>
                 <input type="text" id="search_name" required>
                 <input class="btn" type="submit" value="Search" id="searchEmployee">
                 <!-- <button id="searchEmployee">Search</button> -->
-            </div>
+            </form>
         </div>
     </section>
 
@@ -92,7 +99,7 @@
     </section>
 
     <section class="container1">
-        <h2>Employee List:</h2>
+        <h2 id="empl-list-title" >Employee List:</h2>
         <ul id="employeeList">
             <!-- Employee list results will be displayed here -->
         </ul>

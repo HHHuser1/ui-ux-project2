@@ -1,12 +1,12 @@
 // Function to fetch employee data from the server
 function fetchEmployees() {
-    fetch("./app/employee_management.php", {
-        method: "POST",
-        body: JSON.stringify({ fetchEmployees: true }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+  fetch("./app/employee_management.php", {
+    method: "POST",
+    body: JSON.stringify({ fetchEmployees: true }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
     .then(response => response.json())
     .then(data => displayData(data))
     .catch(error => console.error(error));
@@ -20,7 +20,7 @@ function fetchEmployees() {
 //     employeeList.innerHTML = '';
 
 //     const ul = document.createElement('ul');
-    
+
 //     data.forEach((employee) => {
 //         const li = document.createElement('li');
 //         li.innerHTML = `EmployeeID: ${employee.employee_id}, Name: ${employee.first_name} ${employee.last_name}, Email: ${employee.email}, Department: ${employee.department_name}`;
@@ -34,95 +34,171 @@ function fetchEmployees() {
 // fetchEmployees();
 //////////////
 
-    // Function to display error messages on the page
-    function displayError2(errorMessage) {
-        const errorContainer = document.getElementById("errorContainer2");
-        // errorContainer.innerHTML = `<p style="color: red;">Error: ${errorMessage}</p>`;
-        if (errorMessage) {
-          errorContainer.innerHTML = `<p style="color: red; font-weight: bold; background-color: #ff5">Error: ${errorMessage}</p>`;
-        } else {
-          errorContainer.innerHTML = ''; // Clear the error message
-        }
+// Function to display error messages on the page
+function displayError2(errorMessage) {
+  const errorContainer2 = document.getElementById("errorContainer2");
+  // errorContainer.innerHTML = `<p style="color: red;">Error: ${errorMessage}</p>`;
+  if (errorMessage) {
+    errorContainer2.innerHTML = `<p style="color: red; font-weight: bold; background-color: #ff5">Error: ${errorMessage}</p>`;
+    const errorbox2 = document.getElementById("errorContainer2");
+    errorbox2.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    errorContainer2.innerHTML = ''; // Clear the error message
+  }
+}
+
+
+
+// Function to handle updating an employee
+document.getElementById("updateEmployeeForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  const form = event.target;
+  const updateEmployeeId = form.querySelector("#update_employee_id").value;
+  const updateFirstName = form.querySelector("#update_first_name").value;
+  const updateLastName = form.querySelector("#update_last_name").value;
+  const updateEmail = form.querySelector("#update_email").value;
+  const updateDepartmentName = form.querySelector("#update_department_name").value;
+
+  // Create a JSON object with the updated employee data
+  const data = {
+    updateEmployee: true,
+    update_employee_id: updateEmployeeId,
+    update_first_name: updateFirstName,
+    update_last_name: updateLastName,
+    update_email: updateEmail,
+    update_department_name: updateDepartmentName
+  };
+
+  // Send the data to your PHP script using a fetch request
+  fetch("./app/employee_management.php", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
     }
-
-
-
-    // Function to handle updating an employee
-document.getElementById("updateEmployeeForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const form = event.target;
-    const updateEmployeeId = form.querySelector("#update_employee_id").value;
-    const updateFirstName = form.querySelector("#update_first_name").value;
-    const updateLastName = form.querySelector("#update_last_name").value;
-    const updateEmail = form.querySelector("#update_email").value;
-    const updateDepartmentName = form.querySelector("#update_department_name").value;
-
-    // Create a JSON object with the updated employee data
-    const data = {
-        updateEmployee: true,
-        update_employee_id: updateEmployeeId,
-        update_first_name: updateFirstName,
-        update_last_name: updateLastName,
-        update_email: updateEmail,
-        update_department_name: updateDepartmentName
-    };
-
-    // Send the data to your PHP script using a fetch request
-    fetch("./app/employee_management.php", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+  })
     .then(response => response.json())
     .then(data => {
+
+
+        ////////// color change on success /////
+        const messageContainer = document.getElementById("updateEmployeeForm");
+        // const originalColor = messageContainer.style.backgroundColor;
+
+
         if (data.error) {
-            // Handle the error (e.g., display an error message)
-            console.error(data.error);
-            displayError2(data.error);
+          // Handle the error (e.g., display an error message)
+          console.error(data.error);
+          displayError2(data.error);
         } else {
-            // Clear the error message and reload the page after updating an employee successfully
-            displayError2("");
-            alert("Employee updated successfully");
-            // location.reload();
-            form.reset();
-            fetchEmployees();
+          // Clear the error message and reload the page after updating an employee successfully
+          displayError2("");
+
+          /////////// color change on success /////
+          messageContainer.style.backgroundColor = "green";
+          messageContainer.classList.add("color-transition-original");
+
+
+          // alert("Employee updated successfully");
+          // location.reload();
+          form.reset();
+          // fetchEmployees();
         }
+
+        ////////// color change on success /////
+        setTimeout(() => {
+          // messageContainer.classList.remove("color-transition-original");
+          messageContainer.style.backgroundColor = "";
+        }, 3000);
+
     })
     .catch(error => {
-        // Handle network errors here
-        console.error(error);
-        // Display an appropriate error message
-        displayError2("An error occurred while processing the request.");
+      // Handle network errors here
+      console.error(error);
+      // Display an appropriate error message
+      displayError2("An error occurred while processing the request.");
     });
 });
 
 
 
-        // Function to handle searching for employees
-        document.getElementById("searchEmployee").addEventListener("click", function() {
-            const searchName = document.getElementById("search_name").value;
+// Function to handle searching for employees
+/////// OLD FORM CODE without ability to press ENTER to initiate search ////////////
 
-            fetch("./app/employee_management.php", {
-                method: "POST",
-                body: JSON.stringify({ 
-                    searchEmployee: true,
-                    search_name: searchName
-                }),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-                
-            })
-            .then(response => response.json())
-            .then(data => displayData(data))
-            .catch(error => console.error(error));
-            
-        });
+// document.getElementById("searchEmployee").addEventListener("click", function() {
+//     const searchName = document.getElementById("search_name").value;
+//     document.querySelector("#empl-list-title").style.display = "inline";
 
-        /////////////////////----------------table ----------------------
+//     fetch("./app/employee_management.php", {
+//         method: "POST",
+//         body: JSON.stringify({ 
+//             searchEmployee: true,
+//             search_name: searchName
+//         }),
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//       displayData(data);
+
+//       // Scroll to the search results
+//       const searchResults = document.getElementById("employeeList");
+//       searchResults.scrollIntoView({ behavior: "smooth", block: "start" });
+//     })
+//     .catch(error => console.error(error));
+//   });
+
+
+/////// new code with ability to press ENTER to initiate search ////////////
+
+function searchEmployee(event) {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  const searchName = document.getElementById("search_name").value;
+  document.querySelector("#empl-list-title").style.display = "inline";
+
+  fetch("./app/employee_management.php", {
+    method: "POST",
+    body: JSON.stringify({
+      searchEmployee: true,
+      search_name: searchName
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      displayData(data);
+
+      // Scroll to the search results
+      const searchResults = document.getElementById("employeeList");
+      searchResults.scrollIntoView({ behavior: "smooth", block: "start" });
+    })
+    .catch(error => console.error(error));
+}
+
+  document.getElementById("searchForm").addEventListener("submit", searchEmployee);
+
+  document.getElementById("search_name").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // Prevent form submission
+    searchEmployee(event);
+  }
+  });
+
+//////////////////////
+
+
+
+
+
+
+/////////////////////----------------table ----------------------
 // Function to display employee data on the web page as a table
 
 let currentSortColumn = null;
@@ -226,5 +302,5 @@ function sortTable(columnIndex) {
   // Update the current sort column
   currentSortColumn = columnIndex;
 }
-fetchEmployees();
+// fetchEmployees();
 ///////////////////----------------------end table----------------------
