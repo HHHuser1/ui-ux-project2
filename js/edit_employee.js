@@ -244,8 +244,21 @@ function displayData(data) {
 
   const tbody = document.createElement("tbody");
 
-  data.forEach((employee) => {
+  data.forEach((employee,index) => {
     const row = document.createElement("tr");
+    row.classList.add("employee" + index);
+    row.addEventListener("click",()=>{
+      console.log("hello", employee['employee_id']);
+      const idForm = new FormData();
+      const url = "./app/profile.php?id="+employee['employee_id'];
+      const data = idForm.append("id",employee['employee_id']);
+      fetch(url,{
+        method: "POST",
+        data: data
+      }); 
+
+      window.location.href = "./profile.html?id="+employee['employee_id'];
+    })
     const columns = [
       "employee_id",
       "first_name",
@@ -265,6 +278,8 @@ function displayData(data) {
 
   display.appendChild(table);
 }
+
+
 
 // ----------------------sort table---------------------
 function sortTable(columnIndex) {
@@ -304,3 +319,22 @@ function sortTable(columnIndex) {
 }
 // fetchEmployees();
 ///////////////////----------------------end table----------------------
+
+
+//add event listener to all
+
+// const employeeList = document.querySelectorAll("tr");
+
+// employeeList.forEach((employee,index)=>{
+//   employee.addEventListener("click",()=>{
+//    console.log("hello" + index);
+//   })
+// })
+
+// const listAllEmployee = document.querySelector("td");
+
+// listAllEmployee.addEventListener("click", function(){
+//   console.log("hello");
+// })
+
+// console.log("hello world");

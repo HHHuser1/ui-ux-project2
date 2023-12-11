@@ -1,3 +1,4 @@
+
 <?php
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -6,12 +7,11 @@ error_reporting(E_ALL);
 
 require_once('../_includes/db_connect.php');
 
-
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 // SQL query to fetch employee data along with department names
-$query = "SELECT employees.first_name, employees.last_name, employees.email, employees.employee_id, departments.department_name
-          FROM employees
-          INNER JOIN departments ON employees.departmentID = departments.departmentID";
+$query = "SELECT * FROM employees INNER JOIN departments ON employees.departmentID = departments.departmentID WHERE employees.employee_id = '$id' ";
+         
 
 $result = mysqli_query($link, $query);
 
@@ -31,5 +31,5 @@ header('Content-Type: application/json');
 echo json_encode($employeeData);
 
 // Close the database connection
-// mysqli_close($link);
+mysqli_close($link);
 ?>
