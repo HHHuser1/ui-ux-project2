@@ -63,6 +63,7 @@ document.getElementById("addEmployeeForm").addEventListener("submit", function(e
 
       ////////// color change on success /////
       const messageContainer = document.getElementById("addEmployeeForm");
+      const successMessage = document.getElementById("successMessage"); ///// success message container /////
       // const originalColor = messageContainer.style.backgroundColor;
 
 
@@ -84,6 +85,7 @@ document.getElementById("addEmployeeForm").addEventListener("submit", function(e
         // alert("Employee added successfully");
         // location.reload();
         form.reset();
+        successMessage.style.display = "block"; ///// show the success message /////
         // fetchEmployees();
       }
 
@@ -91,7 +93,8 @@ document.getElementById("addEmployeeForm").addEventListener("submit", function(e
         setTimeout(() => {
         // messageContainer.classList.remove("color-transition-original");
         messageContainer.style.backgroundColor = "";
-        }, 3000); 
+        successMessage.style.display = "none";  ///// Hide the success message /////
+        }, 4000); 
     
   })
   .catch(error => {

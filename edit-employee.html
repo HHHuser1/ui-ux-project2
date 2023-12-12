@@ -66,11 +66,13 @@
                                     <h3><span class="span_class">(an error will display if "employee ID" does not exist in the database)</span></h3>
                                     <div id="errorContainer2"></div> <!-- Updating employee errors will display here -->
                                     
+
                                 </div>
                             
                             
                                 <form id="updateEmployeeForm"> <!-- document.getElementById("updateEmployeeForm").reset(); -->
                                     <p>To update an employee's information please enter correct employee ID</p>
+                                    <div id="successMessage" style="display: none; color: rgb(234, 255, 0); background-color: rgb(1, 81, 1); padding: 6px; margin-bottom: 15px; text-align: center; border: 1px solid yellow; border-radius: 10px;">Employee info updated successfully</div>
                                     <div>
                                         <label for="update_employee_id">Employee ID: (4-digit format)</label>
                                         <input type="text" id="update_employee_id" pattern="[0-9]{4}" placeholder="4-digit format" required><br>
